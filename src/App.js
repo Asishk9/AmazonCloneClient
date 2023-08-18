@@ -11,7 +11,6 @@ import { useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Switch, Route } from "react-router-dom";
 
-
 function App() {
   const [data, setData] = useState(false);
 

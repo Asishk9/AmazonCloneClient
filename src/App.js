@@ -10,20 +10,15 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Switch, Route } from "react-router-dom";
-import axios from 'axios';
 
 function App() {
   const [data, setData] = useState(false);
 
   useEffect(() => {
-    axios.get('https://amazonclonebackend-qb8s.onrender.com/api/getData')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+    setTimeout(() => {
+      setData(true);
+    }, 2000);
+  }, [])
 
 
   return (

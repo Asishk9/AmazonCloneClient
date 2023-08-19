@@ -136,7 +136,7 @@ const Navbaar = () => {
                     <IconButton className="hamburgur" onClick={handelopen}>
                         <MenuIcon style={{ color: "#fff" }} />
                     </IconButton>
-                        {/* here define the right header */}
+                    {/* here define the right header */}
                     <Drawer open={dropen} onClose={handleClosedr} >
                         <Rightheader userlog={logoutuser} logclose={handleClosedr} />
                     </Drawer>
@@ -168,25 +168,39 @@ const Navbaar = () => {
                 </div>
                 <div className="right">
                     <div className="nav_btn">
-                        <NavLink to="/login">Sign in</NavLink>
+                        {account ? (
+                            <button onClick={logoutuser}>Sign Out</button>
+                        ) : (
+                            <NavLink to="/login">Sign In</NavLink>
+                        )}
                     </div>
-                    {
-                        account ? <NavLink to="/buynow">
-                            <div className="cart_btn">
-                                <Badge badgeContent={account.carts.length} color="secondary">
-                                    <i className="fas fa-shopping-cart" id="icon"></i>
-                                </Badge>
 
-                                <p>Cart</p>
-                            </div>
-                        </NavLink> : <NavLink to="/login">
-                            <div className="cart_btn">
+                    {
+
+                        account ? (
+                            <NavLink to="/buynow">
+                                <div className="cart_btn">
+                                    <Badge badgeContent={account.carts.length} color="secondary">
+                                        <i className="fas fa-shopping-cart" id="icon"></i>
+                                    </Badge>
+                                    <p>Cart</p>
+                                </div>
+                            </NavLink>
+                        ) : (
+                            <div
+                                className="cart_btn"
+                                onClick={() =>
+                                    toast.error('Please login first to access your cart!', {
+                                        position: 'top-center',
+                                    })
+                                }
+                            >
                                 <Badge badgeContent={0} color="secondary">
                                     <i className="fas fa-shopping-cart" id="icon"></i>
                                 </Badge>
                                 <p>Cart</p>
                             </div>
-                        </NavLink>
+                        )
                     }
 
                     {

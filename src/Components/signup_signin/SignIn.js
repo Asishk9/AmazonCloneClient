@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Logincontext } from '../context/Contextprovider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
 
+    const history = useHistory();
     const { account, setAccount } = useContext(Logincontext);
 
     const [logdata, setData] = useState({
@@ -58,6 +59,8 @@ const SignIn = () => {
                 toast.success("Login Successfully done 😃!", {
                     position: "top-center"
                 });
+
+                history.push('/');
             }
         } catch (error) {
             console.log("login page error" + error.message);

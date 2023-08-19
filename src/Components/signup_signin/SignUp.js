@@ -74,7 +74,7 @@ const Signup = () => {
                 history.push('/login');
             }
         } catch (error) {
-            console.log("front end ka catch error hai" + error.message);
+            console.log("sign up page error" + error.message);
         }
     }
 

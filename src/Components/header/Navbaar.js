@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Rightheader from './Rightheader';
 import { getProducts } from '../redux/actions/action';
 import { useSelector, useDispatch } from "react-redux";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const usestyle = makeStyles({

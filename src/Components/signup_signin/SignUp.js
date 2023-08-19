@@ -1,12 +1,13 @@
 import { Divider } from '@mui/material';
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import "./signup.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
 
+    const history = useHistory();
     const [udata, setUdata] = useState({
         fname: "",
         email: "",
@@ -62,9 +63,12 @@ const Signup = () => {
                     ...udata, fname: "", email: "",
                     mobile: "", password: "", cpassword: ""
                 });
+                
                 toast.success("Account created succesfully 😃!", {
                     position: "top-center"
                 });
+
+                history.push('/login');
             }
         } catch (error) {
             console.log("front end ka catch error hai" + error.message);

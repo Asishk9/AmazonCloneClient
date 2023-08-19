@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const SignIn = () => {
 
     const history = useHistory();
-    const { account, setAccount } = useContext(Logincontext);
+    const { setAccount } = useContext(Logincontext);
 
     const [logdata, setData] = useState({
         email: "",
@@ -91,7 +91,7 @@ const SignIn = () => {
                                 value={logdata.password}
                                 id="password" placeholder="At least 6 characters" />
                         </div>
-                        <button type="submit" className="signin_btn" onClick={senddata}>Continue</button>
+                        <button type="submit" className="signin_btn" onClick={senddata}>Sign in</button>
                     </form>
                     <ToastContainer />
                 </div>

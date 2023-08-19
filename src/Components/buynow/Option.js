@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Option = ({ deletedata, get }) => {
     // console.log(deletedata);
 
-    const { account, setAccount } = useContext(Logincontext);
+    const { setAccount } = useContext(Logincontext);
     // console.log(account);
 
     const removedata = async (id) => {
@@ -39,7 +39,6 @@ const Option = ({ deletedata, get }) => {
 
     }
 
-
     return (
         <div className="add_remove_select" key={deletedata}>
             <select name="" id="">
@@ -47,6 +46,7 @@ const Option = ({ deletedata, get }) => {
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
+                <option value="5">5</option>
             </select>
             <p onClick={() => removedata(deletedata)} style={{ cursor: "pointer" }}>Delete</p><span>|</span>
             <p className="forremovemedia">Save For Later</p><span>|</span>

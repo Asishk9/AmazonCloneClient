@@ -8,7 +8,7 @@ import { Logincontext } from "../context/Contextprovider";
 
 const Cart = () => {
 
-    const { account, setAccount } = useContext(Logincontext);
+    const { setAccount } = useContext(Logincontext);
     // console.log(account);
 
     const { id } = useParams("");

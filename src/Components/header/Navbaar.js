@@ -98,8 +98,6 @@ const Navbaar = () => {
             credentials: "include"
         });
 
-        const data2 = await res2.json();
-        // console.log(data2);
 
         if (!res2.status === 201) {
             const error = new Error(res2.error);

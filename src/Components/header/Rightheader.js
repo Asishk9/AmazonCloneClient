@@ -1,31 +1,17 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
 import { NavLink } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Logincontext } from '../context/Contextprovider';
-import { makeStyles } from '@material-ui/core';
 import "./rightheader.css";
 import { Divider } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-
-
-
-const usestyle = makeStyles({
-    component: {
-        marginTop: 10,
-        marginRight: "-50px",
-        width: "300px",
-        padding: 50,
-        height: "300px"
-    },
-})
-
 
 const Rightheader = ({ userlog ,logclose}) => {
 
     const imgd = "/india.png"
 
-    const { account, setAccount } = useContext(Logincontext);
+    const { account } = useContext(Logincontext);
 
 //  this is left drawer bt name is right header
 

@@ -67,6 +67,9 @@ const Signup = () => {
                 toast.success("Account created succesfully 😃!", {
                     position: "top-center"
                 });
+                toast.success("Now you can Sign in to your New Amazon Account!", {
+                    position: "top-center"
+                });
 
                 history.push('/login');
             }

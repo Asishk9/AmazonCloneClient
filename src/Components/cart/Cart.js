@@ -5,10 +5,12 @@ import { Divider } from '@mui/material';
 import { useHistory, useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Logincontext } from "../context/Contextprovider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
 
-    const { setAccount } = useContext(Logincontext);
+    const { account, setAccount } = useContext(Logincontext);
     // console.log(account);
 
     const { id } = useParams("");
@@ -17,8 +19,6 @@ const Cart = () => {
     const history = useHistory();
 
     const [inddata, setInddata] = useState("");
-
-    // console.log([inddata]);
 
     const getinddata = async () => {
         const res = await fetch(`/getproductsone/${id}`, {
@@ -36,7 +36,7 @@ const Cart = () => {
         if (res.status !== 201) {
             alert("no data available")
         } else {
-           //  console.log("ind mila hain");
+            //  console.log("ind mila hain");
             setInddata(data);
         }
     };
@@ -46,7 +46,13 @@ const Cart = () => {
     }, [id]);
 
     const addtocart = async (id) => {
-        console.log(id);
+
+        if (!account) {
+            toast.error("Please login first to add to cart", {
+                position: "top-center"
+            });
+            return;
+        }
         const check = await fetch(`/addcart/${id}`, {
             method: "POST",
             headers: {
@@ -71,6 +77,18 @@ const Cart = () => {
         }
     }
 
+    const buyNow = () => {
+        if (account) {
+            toast.success("You have successfully placed your order!", {
+                position: "top-center"
+            });
+        } else {
+            toast.error("Please login to buy", {
+                position: "top-center"
+            });
+        }
+    };
+
 
     return (
 
@@ -81,7 +99,7 @@ const Cart = () => {
                         <img src={inddata.detailUrl} alt="cart" />
                         <div className="cart_btn">
                             <button className="cart_btn1" onClick={() => addtocart(inddata.id)}>Add to Cart</button>
-                            <button className="cart_btn2">Buy Now</button>
+                            <button className="cart_btn2" onClick={buyNow}>Buy Now</button>
                         </div>
 
                     </div>

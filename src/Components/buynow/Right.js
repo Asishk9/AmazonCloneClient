@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useHistory } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Right = ({ items }) => {
 
@@ -24,11 +26,13 @@ const Right = ({ items }) => {
         setPrice(price)
     }
 
-    const proceesby = ()=>{
-        alert("Your Order is Confirmed");
+    const proceesby = () => {
+        toast.success("Your order is successful!", {
+            position: "top-center"
+        });
         history.push("/");
     }
-
+    
     return (
         <div className="right_buy">
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/checkout/assets/TM_desktop._CB443006202_.png" alt="rightimg" />

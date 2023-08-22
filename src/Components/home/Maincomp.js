@@ -53,12 +53,3 @@ const Maincomp = () => {
 
 export default Maincomp;
 
-{/* {
-            products.map((e)=>{
-                return (
-                    <>
-                        <h3>{e.description}</h3>
-                    </>
-                )
-            })
-        } */}
